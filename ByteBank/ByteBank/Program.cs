@@ -1,4 +1,5 @@
-﻿using ByteBank.Funcionarios;
+﻿using ByteBank.Sistemas;
+using ByteBank.Funcionarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,20 @@ namespace ByteBank
         static void Main(string[] args)
         {
 
-            Diretor felipe = new Diretor(3000, "132-333-444-21");
+            //new object sistemaInterno
+            SistemaInterno sistemaInterno = new SistemaInterno();
 
-            Console.WriteLine(felipe.CPF);
-            Console.WriteLine(felipe.Salario);
+            //new object Director
+            Diretor felipe = new Diretor("222.222.222-33");
+            felipe.Senha = "123";
+
+            //new object GerenteDeConta
+            GerenteDeConta renato = new GerenteDeConta("333.333.333-55");
+            renato.Senha = "abc";
+
+            //test if works passwd authentication
+            sistemaInterno.Logar(felipe, "123");
+            sistemaInterno.Logar(renato, "abc");
 
             Console.ReadLine();
 
