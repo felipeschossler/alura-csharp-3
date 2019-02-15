@@ -24,10 +24,14 @@ namespace ByteBank
             GerenteDeConta renato = new GerenteDeConta("333.333.333-55");
             renato.Senha = "abc";
 
+            //new object ParceiroComercial
+            ParceiroComercial parceiro = new ParceiroComercial();
+            parceiro.Senha = "abc123";
+
             //test if works passwd authentication
             sistemaInterno.Logar(felipe, "123");
             sistemaInterno.Logar(renato, "abc");
-
+            sistemaInterno.Logar(parceiro, "abc123");
             Console.ReadLine();
 
         }

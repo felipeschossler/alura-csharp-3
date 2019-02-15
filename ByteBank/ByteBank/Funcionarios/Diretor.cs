@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Diretor : Autenticavel
+    public class Diretor : Funcionario, IAutenticavel
     {
         //construtor que referencia a classe base
         public Diretor(string cpf) : base(5000, cpf) { }
@@ -25,6 +25,12 @@ namespace ByteBank.Funcionarios
         internal void Logar(string v)
         {
             throw new NotImplementedException();
+        }
+
+        public string Senha { get; set; }
+        public bool Autenticar(string senha)
+        {
+            return Senha == senha;
         }
     }
 }
